@@ -1,4 +1,4 @@
-<h1>Human Protain Atlas Solution</h1>
+<h1>Human Protein Atlas Solution</h1>
 
 Kaggle - Human Protein Atlas - Single Cell Classification    
 https://www.kaggle.com/c/hpa-single-cell-image-classification   
