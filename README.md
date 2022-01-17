@@ -23,7 +23,7 @@ https://www.kaggle.com/c/hpa-single-cell-image-classification
 <h2>Model Explanation</h2>
 
 본 프로젝트는 단백질 세포 이미지에서 18개의 특징을 multi-label classification 통해 구별해야 합니다.
-하지만 training data가 세포 단위로 labeling 되어 있지 않고 이미지 단위로 labeling 되어 있어 weakly-labeled 환경이라 볼 수 있습니다.
+하지만 training data가 세포 단위로 labeling 되어 있지 않고 이미지 단위로 labeling 되어 있어 weakly supervised 환경이라 볼 수 있습니다.
 
 본 repository의 모델은 다음과 같습니다. 한계점은 아래 limitation 항목을 참조하세요.
 
@@ -50,9 +50,10 @@ https://www.kaggle.com/c/hpa-single-cell-image-classification
 <h2>Limitation</h2>
 
 사실상 본 모델은 Baseline에 지나지 않습니다.
-전형적인 image classification 모델이며, HPA 과제의 가장 큰 특징인 Weakly-labeled를 효과적으로 해결할 수 없습니다.
+전형적인 image classification 모델이며, HPA 과제의 가장 큰 특징인 Weak-label 문제를 효과적으로 해결할 수 없습니다.
 시간 관계상 구현하지는 못하였으나, 효과적인 개선방안은 다음과 같습니다.
 
-1. 본 모델에서는 처음에 별도로 segmentaion을 진행하였으나, weakly-labeled segmentation 관련 논문을 참고하여 segmentation을 진행하면 더 효과적인 결과를 얻을 수 있을 것 입니다.
+1. 본 모델에서는 처음에 별도로 segmentaion을 진행하였으나, weakly-supervised segmentation 관련 논문을 참고하여 segmentation을 진행하면 더 효과적인 결과를 얻을 수 있을 것 입니다.
 2. label smoothing 기법을 활용해 잘못된 label의 영향을 줄일 수 있습니다.
 3. 이미지 전체로 1차적인 classification을 진행하고, 각 세포들에 대한 별도의 classification을 진행, 위 정보들과 한 이미지 내의 다른 세포간의 위치정보를 포함하여 최종 prediction 모델을 구성하면 정확도를 개선할 수 있을 것입니다.
+4. 유사한 세포간에 작은 특징을 구별한다는 점에서 안면인식 등에 쓰이는 metric learning 시도
